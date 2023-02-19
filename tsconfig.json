@@ -1,0 +1,16 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json", // 先继承该文件的所有配置
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"], // 包含的路径文件都要通过ts进行解析（业务方面的文件）
+  "compilerOptions": {  
+    "baseUrl": ".",
+    "paths": { // vscod代码提示 => vite.config.js 里的是说打包的时候将 @ 符号转换为 ./src
+      "@/*": ["./src/*"]
+    }
+  },
+
+  "references": [ // 还引入其他ts配置文件
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
+}

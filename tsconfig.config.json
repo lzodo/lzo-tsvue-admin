@@ -1,0 +1,8 @@
+{ // 会被合并到 tsconfig.json 中
+  "extends": "@vue/tsconfig/tsconfig.node.json", 
+  "include": ["vite.config.*", "vitest.config.*", "cypress.config.*", "playwright.config.*"], // 包含的路径文件都要通过ts进行解析（打包配置、环境方面的文件）
+  "compilerOptions": {
+    "composite": true,   // 是合成到tsconfig.json 的compilerOptions 里
+    "types": ["node"]    // 有可能跑到node环境（SSR）
+  }
+}

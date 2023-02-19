@@ -1,0 +1,67 @@
+p,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+hr,
+input,
+div,
+textarea {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* 实现1px边框 */
+table {
+	border-collapse: collapse;
+}
+
+/* 清浮动 */
+.clearfix::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+/* 解决图片下间隙 */
+img {
+	vertical-align: middle;
+}
+
+/* 去掉轮廓线 */
+input,
+textarea {
+	outline: none;
+}
+
+/* 去掉下划线 */
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+/* 去掉自带列表符 */
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+textarea {
+	/*禁止用户改变尺寸*/
+	resize: none;
+}
+
+del {
+	text-decoration: none;
+}
