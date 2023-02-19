@@ -93,6 +93,22 @@ npm run lint
 	-	通过 defineStore 创建一个个store，vue页面中通过 hooks的方式使用
 
 -	axios 网络请求封装
+	-	`npm install axios`
+
+-	vint 的环境变量
+	```javascript
+	// vite 用 import.meta.env.MODE 代替 process.env.NODE_ENV
+	console.log(import.meta.env.BASE_URL) // baseurl
+	console.log(import.meta.env.DEV) // 是否运行在开发环境
+	console.log(import.meta.env.MODE) // vite 直接通过这个判断  production/development 生产或开发模式
+	console.log(import.meta.env.PROD) // 是否运行在生产环境
+	console.log(import.meta.env.SSR) // 是否运行在SSR环境
+	```
+-	vite 的环境配置文件
+	-	都会读取: .env               中配置 VITE_ 开头的变量,`VITE_XXX='lzo'`,后期可以从 import.meta.env.VITE_XXX 获取
+	-	开发读取: .env.development
+	-	生产读取: .env.production
+	-	git忽略:  .env.xxx.local
 
 ### editorconfig 配置(编辑情况下)
 > 有助于为不同IDE编辑器上处理同一个项目的多个开发人员 维护一致的编码风格
@@ -135,7 +151,7 @@ max_line_length = off
 ```
 
 ### prettierrc 格式化配置(格式化情况下)
-问题  .vue文件不生效(已解决 当时vue的默认格式化程序不是prettier)
+
 1、项目安装 prettier
 2、配置代码风格
 ```json
@@ -198,3 +214,11 @@ module.exports = {
 // 'plugin:prettier/recommended'
 
 ```
+
+### 遇到的问题
+1. .vue文件不生效(已解决 当时vue的默认格式化程序不是prettier)
+2. 封装axios ts 不认识环境变量 `process`
+   1. @types/node 确认已安装
+   2. 将 "types": ["node"], 从 tsconfig.config.json 移动到 tsconfig.json 中
+3. vite 中对打包的代码进行预览
+   1. "preview": "vite preview"

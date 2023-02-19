@@ -14,7 +14,12 @@ module.exports = {
 		ecmaVersion: 'latest'
 	},
 	rules: {
-		'vue/multi-word-component-names': 'off'
+		'vue/multi-word-component-names': 'off',
+		'prefer-const': 'off'
+	},
+	env: {
+		node: true,
+		commonjs: true
 	}
 }
 

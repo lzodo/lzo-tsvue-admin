@@ -7,3 +7,10 @@ declare module '*.vue' {
 	const src: DefineComponent
 	export default src
 }
+
+interface errorCodes {
+	'401': string
+	'403': string
+	'404': string
+	default: string
+}
