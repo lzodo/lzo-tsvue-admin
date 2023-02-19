@@ -110,6 +110,34 @@ npm run lint
 	-	生产读取: .env.production
 	-	git忽略:  .env.xxx.local
 
+-	[element-plus](https://element-plus.gitee.io/en-US/guide/installation.html#using-package-manager) 配置
+	-	安装 `npm install element-plus --save`
+	-	全局导入不推荐
+		-	import ElementPlus from 'element-plus' , main中use一下
+	-	按需导入
+		-	`npm install -D unplugin-vue-components unplugin-auto-import`
+		```js
+		// 配置element-plus
+		import AutoImport from 'unplugin-auto-import/vite'
+		import Components from 'unplugin-vue-components/vite'
+		import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+		export default defineConfig({
+			plugins: [
+				AutoImport({
+					resolvers: [ElementPlusResolver()]
+				}),
+				Components({
+					resolvers: [ElementPlusResolver()]
+				})
+			]
+		})
+
+		// 不需要像以前哪有，组件中用到什么，手动引入什么
+		```
+		-	ts项目中，会生成ts文件 "components.d.ts","auto-imports.d.ts" 加入到ts配置文件的include中
+
+
 ### editorconfig 配置(编辑情况下)
 > 有助于为不同IDE编辑器上处理同一个项目的多个开发人员 维护一致的编码风格
 

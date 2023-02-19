@@ -1,6 +1,6 @@
 {
 	"extends": "@vue/tsconfig/tsconfig.web.json", // 先继承该文件的所有配置
-	"include": ["env.d.ts", "src/**/*", "src/**/*.vue"], // 包含的路径文件都要通过ts进行解析（业务方面的文件）
+	"include": ["env.d.ts", "src/**/*", "src/**/*.vue", "components.d.ts", "auto-imports.d.ts"], // 包含的路径文件都要通过ts进行解析（业务方面的文件）
 	"compilerOptions": {
 		"baseUrl": ".",
 		"types": ["node"],

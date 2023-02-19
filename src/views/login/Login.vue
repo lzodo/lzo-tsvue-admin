@@ -1,5 +1,7 @@
 <template>
 	<div>login {{ loginStore.isLogin }}</div>
+	<el-button type="warning">Warning</el-button>
+	<el-button type="danger">Danger</el-button>
 </template>
 
 <script setup lang="ts">
