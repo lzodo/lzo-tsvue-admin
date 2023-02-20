@@ -190,8 +190,16 @@ max_line_length = off
 		"printWidth": 80,          单行字符的长度（超过之后就会自动换行）
 		"singleQuote": false,      是否使用单引号
 		"trailingComma": "none",   多行尾部是否添加逗号(对象最后一个实现是否加逗号，none不加，all加)
-		"semi": true               语句末尾是否加封号
-	}
+		"semi": true,              语句末尾是否加封号
+
+		"quoteProps": "<as-needed|consistent|preserve>", 对象key 是否加引号,  需要的情况加/存在一个就加/保留存在的
+		"jsxSingleQuote": false, 在jsx文件中的引号需要单独设置
+		"bracketSpacing": true, object对象里面的key和value值和括号间的空格
+		"jsxBracketSameLine": false, jsx标签多行属性写法时，尖括号是否另起一行
+		"arrowParens": "<always|avoid>", 箭头单参数是否省略括号，默认always是总是带括号
+		"vueIndentScriptAndStyle": false, vue script和style标签中是否缩进,开启可能会破坏编辑器的代码折叠
+		"endOfLine": "<lf|crlf|cr|auto>", 行尾换行符,默认是lf
+		"embeddedLanguageFormatting": "<off|auto>", 默认是auto,控制被引号包裹的代码是否进行格式化
 */
 
 {

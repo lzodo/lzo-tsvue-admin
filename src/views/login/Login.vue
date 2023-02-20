@@ -1,7 +1,5 @@
 <template>
-	<div>login {{ loginStore.isLogin }}</div>
-	<el-button type="warning">Warning</el-button>
-	<el-button type="danger">Danger</el-button>
+	<div class="login-page page">login {{ loginStore.isLogin }}</div>
 </template>
 
 <script setup lang="ts">
@@ -14,4 +12,8 @@ verifCode().then((res) => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.login-page{
+	background-color: #f00;
+}
+</style>
