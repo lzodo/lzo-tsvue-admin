@@ -4,11 +4,6 @@ import '@/assets/css/index.scss'
 import App from './App.vue'
 import router from './router'
 import pinia from './store'
+import ElementIcons from './global/register-icons'
 
-let a = {
-	c: 1,
-	b: 2,
-	d: () => { }
-}
-
-createApp(App).use(router).use(pinia).mount('#app')
+createApp(App).use(ElementIcons).use(router).use(pinia).mount('#app')

@@ -20,3 +20,5 @@ export function verifCode() {
 		method: 'get'
 	})
 }
+
+//https://documenter.getpostman.com/view/12387168/TzzDKb12

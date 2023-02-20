@@ -3,7 +3,9 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// 配置element-plus
+// 配置element-plus template的组件自动引入
+// js逻辑中使用对象需要单独引入
+// 并且样式也需要引入['element-plus/theme-chalk/el-message.css'] 或 使用插件 vite-plugin-style-import 解决样式问题
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
