@@ -14,7 +14,7 @@ const useLoginStore = defineStore('login', {
 			console.log(res, 222)
 			console.log(res.token, 222)
 			this.token = res.token
-			// this.userInfo = res.userInfo
+			this.userInfo = res.userInfo
 		}
 	}
 })
