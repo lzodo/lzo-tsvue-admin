@@ -8,6 +8,8 @@ declare module '*.vue' {
 	export default src
 }
 
+// 处理 类型“AxiosResponse<any, any>”上不存在属性“token”
+// declare module 'axios'
 interface errorCodes {
 	'401': string
 	'403': string

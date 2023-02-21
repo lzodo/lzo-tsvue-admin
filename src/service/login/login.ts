@@ -11,13 +11,14 @@ import request from '@/utils/request'
 // 	})
 // }
 
-export function verifCode() {
+export function userSignin(data: any) {
 	return request({
-		url: '/api/home/multidata',
+		url: '/api/users/login',
 		headers: {
 			notToken: true // 是否不需要token
 		},
-		method: 'get'
+		method: 'post',
+		data: data
 	})
 }
 

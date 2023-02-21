@@ -30,7 +30,11 @@ export default defineConfig({
 		proxy: {
 			'/api': {
 				// target: 'http://114.115.212.129:8778',
-				target: 'http://codercba.com:8000',
+				// target: 'http://codercba.com:8000',
+				// target: 'http://coderwhy.dev:8000',
+				// target: 'http://codercba.prod:8000',
+				// target: 'http://152.136.185.210:4000',
+				target: 'http://114.115.212.129:8778',
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, '')
 			}

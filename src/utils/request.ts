@@ -11,6 +11,7 @@ console.log(import.meta.env.SSR) // 是否SSR环境
 
 let baseURL = '/'
 if (import.meta.env.MODE === 'production') {
+	// baseURL = 'http://codercba.com:8000' // process.env 在vite4 中不支持生产环境，只支持开发环境
 	baseURL = 'http://codercba.com:8000' // process.env 在vite4 中不支持生产环境，只支持开发环境
 }
 
@@ -70,6 +71,7 @@ service.interceptors.response.use(
 			return Promise.reject(new Error(msg))
 		} else if (code !== 200) {
 			console.log('!=200', msg)
+			ElMessage.error(msg)
 			if (!res.config.headers.noterrdialog) {
 				console.log(msg)
 			}

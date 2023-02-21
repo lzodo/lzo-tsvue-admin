@@ -22,6 +22,8 @@
 <script setup lang="ts">
 	import type { FormRules, ElForm } from 'element-plus'
 	import { ref, reactive } from 'vue'
+	import useLoginStore from '@/store/login/login'
+	let loginStore = useLoginStore()
 
 	let formLabelAlign = reactive({ accountNumber: '', passwd: '' })
 	const rules = reactive<FormRules>({
@@ -39,6 +41,14 @@
 		signInFromRef.value?.validate((valid) => {
 			if (valid) {
 				console.log('数据验证成功')
+				//1. 获取用户输入的信息
+				console.log(formLabelAlign)
+				//2. 向服务器发送网络请求
+				let params = {
+					name: formLabelAlign.accountNumber,
+					passwd: formLabelAlign.passwd
+				}
+				loginStore.signInAction(params)
 			} else {
 				console.log('请输入正确数据')
 			}
