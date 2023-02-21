@@ -16,6 +16,7 @@ declare module 'axios' {
 		(config: AxiosRequestConfig): Promise<any>
 	}
 }
+
 interface errorCodes {
 	'401': string
 	'403': string

@@ -111,6 +111,7 @@ npm run lint
 	-	git忽略:  .env.xxx.local
 
 -	[element-plus](https://element-plus.gitee.io/en-US/guide/installation.html#using-package-manager) 配置
+	-	[中文网](http://element-plus.org/zh-CN/)
 	-	安装 `npm install element-plus --save`
 	-	全局导入不推荐
 		-	import ElementPlus from 'element-plus' , main中use一下
