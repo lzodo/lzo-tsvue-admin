@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { tansParams } from './tool'
 import errorCode from '@/utils/errorCode'
+import { localCatch } from './catch'
 
 // vite 用 import.meta.env.MODE 代替 process.env.NODE_ENV
 console.log(import.meta.env.BASE_URL) // baseurl
@@ -24,7 +25,7 @@ const service = axios.create({
 service.interceptors.request.use(
 	(config) => {
 		if (!config.headers.notToken) {
-			config.headers.token = localStorage.getItem('token')
+			config.headers.token = localCatch.getItem('token')
 		}
 
 		if (import.meta.env.MODE === 'production') {

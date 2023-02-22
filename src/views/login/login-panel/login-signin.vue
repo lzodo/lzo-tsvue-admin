@@ -26,6 +26,7 @@
 	import { localCatch } from '@/utils/catch'
 	let loginStore = useLoginStore()
 
+	// 记住密码功能
 	let saveInfo = localCatch.getItem('saveInfo')
 	saveInfo = saveInfo ?? { name: '', passwd: '' }
 	let formLabelAlign = reactive(saveInfo)

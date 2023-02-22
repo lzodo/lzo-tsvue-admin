@@ -33,8 +33,8 @@
 <script setup lang="ts">
 	// import { UserFilled, User } from '@element-plus/icons-vue' // 全局注册就不需要了
 	import { ref } from 'vue'
-	import LoginSignIn from './LoginSignIn.vue'
-	import LoginSignup from './LoginSignup.vue'
+	import LoginSignIn from './login-signin.vue'
+	import LoginSignup from './login-signup.vue'
 	import useLoginStore from '@/store/login/login'
 	let loginStore = useLoginStore()
 
