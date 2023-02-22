@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import type { LoginFromData } from '@/types'
 
 // 图形码
 // export function verifCode() {
@@ -11,7 +12,7 @@ import request from '@/utils/request'
 // 	})
 // }
 
-export function userSignin(data: any) {
+export function userSignin(data: LoginFromData) {
 	return request({
 		url: '/api/users/login',
 		headers: {

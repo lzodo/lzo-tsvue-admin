@@ -23,7 +23,7 @@
 			</el-tab-pane>
 		</el-tabs>
 		<div class="controls">
-			<el-checkbox v-model="isSavePwd" label="记住密码" size="large" />
+			<el-checkbox v-model="isSavePwd" label="记住密码" size="large" @change="changeSaveState" />
 			<el-link type="primary" size="large">忘记密码</el-link>
 		</div>
 		<el-button type="primary" class="login-btn" size="large" @click="submitFrom">立即登录</el-button>
@@ -31,14 +31,21 @@
 </template>
 
 <script setup lang="ts">
+	// import { UserFilled, User } from '@element-plus/icons-vue' // 全局注册就不需要了
 	import { ref } from 'vue'
 	import LoginSignIn from './LoginSignIn.vue'
 	import LoginSignup from './LoginSignup.vue'
-	// import { UserFilled, User } from '@element-plus/icons-vue' // 全局注册就不需要了
+	import useLoginStore from '@/store/login/login'
+	let loginStore = useLoginStore()
+
 	const isSavePwd = ref(true)
+	loginStore.savePasswdActive(isSavePwd.value)
+	const changeSaveState = () => {
+		loginStore.savePasswdActive(isSavePwd.value)
+	}
+
 	const tabPaneName = ref('login')
 	const userSignInRef = ref<InstanceType<typeof LoginSignIn>>() // 我们为了智能提示，需要拿到相关组件导出的实例的类型(LoginSignIn 可以看成一个构造器)
-
 	const submitFrom = () => {
 		if (tabPaneName.value == 'login') {
 			userSignInRef.value?.loginAction() // 需要子组件通过 loginAction 暴露才能调用

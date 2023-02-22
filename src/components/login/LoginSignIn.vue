@@ -9,8 +9,8 @@
 			:rules="rules"
 			status-icon
 		>
-			<el-form-item label="帐号" prop="accountNumber">
-				<el-input v-model="formLabelAlign.accountNumber" placeholder="请输入帐号" />
+			<el-form-item label="帐号" prop="name">
+				<el-input v-model="formLabelAlign.name" placeholder="请输入帐号" />
 			</el-form-item>
 			<el-form-item label="密码" prop="passwd">
 				<el-input v-model="formLabelAlign.passwd" placeholder="请输入密码" type="password" show-password />
@@ -23,11 +23,14 @@
 	import type { FormRules, ElForm } from 'element-plus'
 	import { ref, reactive } from 'vue'
 	import useLoginStore from '@/store/login/login'
+	import { localCatch } from '@/utils/catch'
 	let loginStore = useLoginStore()
 
-	let formLabelAlign = reactive({ accountNumber: '', passwd: '' })
+	let saveInfo = localCatch.getItem('saveInfo')
+	saveInfo = saveInfo ?? { name: '', passwd: '' }
+	let formLabelAlign = reactive(saveInfo)
 	const rules = reactive<FormRules>({
-		accountNumber: [
+		name: [
 			{ required: true, message: '请输入账号', trigger: 'blur' },
 			{ min: 2, max: 12, message: '必须是2~12位', trigger: 'blur' },
 			{ pattern: /^[0-9za-zA-Z]{2,12}$/, message: '必须数字或字母组成', trigger: 'blur' }
@@ -45,7 +48,7 @@
 				console.log(formLabelAlign)
 				//2. 向服务器发送网络请求
 				let params = {
-					name: formLabelAlign.accountNumber,
+					name: formLabelAlign.name,
 					passwd: formLabelAlign.passwd
 				}
 				loginStore.signInAction(params)

@@ -30,6 +30,7 @@ export default defineConfig({
 		proxy: {
 			'/api': {
 				// target: 'http://114.115.212.129:8778',
+				// target: 'http://codercba.com:3000',
 				// target: 'http://codercba.com:8000',
 				// target: 'http://coderwhy.dev:8000',
 				// target: 'http://codercba.prod:8000',
