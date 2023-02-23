@@ -157,6 +157,7 @@ npm run lint
 
 -	通过element-plus Container布局容器，管理页面布局
 -	菜单树，图标，路由跳转、伸缩
+-	面包屑导航
 ### editorconfig 配置(编辑情况下)
 > 有助于为不同IDE编辑器上处理同一个项目的多个开发人员 维护一致的编码风格
 

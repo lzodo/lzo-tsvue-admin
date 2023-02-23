@@ -2,12 +2,12 @@
 	<div class="main-page page common-layout">
 		<!--使用 Container 布局容器 组件布局-->
 		<el-container>
-			<el-aside>
+			<el-aside :class="{ isCollapse: isCollapse }">
 				<MainMenu></MainMenu>
 			</el-aside>
 			<el-container>
 				<el-header>
-					<MainHeader></MainHeader>
+					<MainHeader @changeMenuState="changeMenuState"></MainHeader>
 				</el-header>
 				<el-main>
 					<MainCentent></MainCentent>
@@ -21,6 +21,13 @@
 	import MainMenu from '@/components/MainMenu/index.vue'
 	import MainHeader from '@/components/MainHeader/index.vue'
 	import MainCentent from '@/components/MainCentent/index.vue'
+	import { ref } from 'vue'
+
+	// 这边可以直接通过pinin设置状态，这边只是为了测试自定义事件
+	let isCollapse = ref(false)
+	const changeMenuState = (state: boolean) => {
+		isCollapse.value = state
+	}
 </script>
 
 <style lang="scss" scoped>
@@ -34,6 +41,10 @@
 
 	.el-aside {
 		width: 200px;
+		transition: width 0.3s ease;
+		&.isCollapse {
+			width: 60px;
+		}
 	}
 	.el-container {
 		height: 100%;

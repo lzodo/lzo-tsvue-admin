@@ -57,4 +57,7 @@
 	.el-menu {
 		border-right: 0;
 	}
+	// 设置子组件内部类的样式如果无效 不用 /deep/ ，可以 :deep(.xxx) 或 :global(.xxx)
+	// deep
+	// global 全局生效
 </style>
