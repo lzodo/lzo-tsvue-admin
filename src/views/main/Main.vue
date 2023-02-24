@@ -23,7 +23,6 @@
 <script setup lang="ts">
 	import MainMenu from '@/components/MainMenu/index.vue'
 	import MainHeader from '@/components/MainHeader/index.vue'
-	import MainCentent from '@/components/MainCentent/index.vue'
 	import { ref } from 'vue'
 
 	// 这边可以直接通过pinin设置状态，这边只是为了测试自定义事件
