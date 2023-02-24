@@ -24,7 +24,12 @@
 						<span>{{ item.name }}</span>
 					</template>
 					<!-- :index="String(item.id) + '-' + String(subItem.id)" index 不一定要用他模板的1-1-->
-					<el-menu-item :index="String(subItem.id)" v-for="subItem in item.children" :key="subItem.id">
+					<el-menu-item
+						:index="String(subItem.id)"
+						v-for="subItem in item.children"
+						:key="subItem.id"
+						@click="toPath(subItem.url)"
+					>
 						<template #title>
 							<el-icon>
 								<component :is="subItem.icon.replace('el-icon', '')"></component>
@@ -39,6 +44,7 @@
 </template>
 
 <script setup lang="ts">
+	import router from '@/router'
 	import useLoginStore from '@/store/login/login'
 	import useMainStore from '@/store/main/main'
 
@@ -51,13 +57,14 @@
 	const handleClose = (key: string, keyPath: string[]) => {
 		console.log(key, keyPath)
 	}
+
+	const toPath = (url: any) => {
+		router.push(url)
+	}
 </script>
 
 <style lang="scss" scoped>
 	.el-menu {
 		border-right: 0;
 	}
-	// 设置子组件内部类的样式如果无效 不用 /deep/ ，可以 :deep(.xxx) 或 :global(.xxx)
-	// deep
-	// global 全局生效
 </style>

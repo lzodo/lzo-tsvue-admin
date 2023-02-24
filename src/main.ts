@@ -7,4 +7,9 @@ import pinia from './store'
 import ElementIcons from './global/register-icons'
 import 'element-plus/theme-chalk/el-message.css'
 
-createApp(App).use(ElementIcons).use(router).use(pinia).mount('#app')
+const app = createApp(App)
+app.use(ElementIcons)
+app.use(pinia)
+app.use(router)
+
+app.mount('#app')

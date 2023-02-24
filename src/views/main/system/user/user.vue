@@ -1,6 +1,6 @@
 <template>
-	<div class="main-centent">
-		<router-view></router-view>
+	<div class="user-page page">
+		<div>user</div>
 	</div>
 </template>
 

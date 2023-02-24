@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import type { LoginFromData } from '@/types'
 import { localCatch } from '@/utils/catch'
 import router from '@/router'
+import mapMenusToRoute from '@/utils/map-menus'
 
 // 指定state数据的类型（复杂可以网上找 json to typestrip 工具转换好拿来用）
 interface ILoignState {
@@ -204,8 +205,18 @@ const useLoginStore = defineStore('login', {
 					]
 				}
 			]
+
+			// 跳转前先注册动态路由, 刷新的时候会消失
+			this.loadDynamicRouter()
+
 			// 页面跳转
 			router.push('/main')
+		},
+		loadDynamicRouter() {
+			if (this.token && this.userMenus) {
+				let menuRoutes = mapMenusToRoute(this.userMenus)
+				menuRoutes.map((route) => router.addRoute('main', route))
+			}
 		}
 	},
 	persist: true
