@@ -1,8 +1,11 @@
 import type { RouteRecordRaw } from 'vue-router'
-export default function mapMenusToRoute(menus: any[]) {
+
+export let defaultMenu: any = null // 设置登录后默认跳转的菜单
+export function mapMenusToRoute(menus: any[]) {
 	// 步骤1 已得到菜单
 	// 步骤2 一样需要先编辑好所有route  (coderwhy 自动化工具有时间可以了解一下)
 	let localRoutes = [
+		{ path: '/main/analysis/overview', component: () => import('@/views/main/analysis/overview/overview.vue') },
 		{ path: '/main/system/user', component: () => import('@/views/main/system/user/user.vue') },
 		{ path: '/main/system/role', component: () => import('@/views/main/system/role/role.vue') },
 		{ path: '/main/system/menu', component: () => import('@/views/main/system/menu/menu.vue') }
@@ -14,9 +17,46 @@ export default function mapMenusToRoute(menus: any[]) {
 		for (const submenu of menu.children) {
 			let route = localRoutes.filter((item) => item.path == submenu.url)[0]
 			if (route) menuRoutes.push(route) // router.addRoute('main', route)
+			if (!defaultMenu && route) defaultMenu = submenu
 		}
 	}
 	return menuRoutes
+}
+
+/**
+ * 根据路径奇葩需要显示的菜单
+ * @param path
+ * @param userMenus
+ */
+export function mapPathToMenu(path: string, menus: any[]) {
+	for (const menu of menus) {
+		for (const submenu of menu.children) {
+			if (submenu.url == path) {
+				return submenu.id + ''
+			}
+		}
+	}
+}
+
+/**
+ * 通过路径 得到面包屑上级路径
+ * @param path
+ * @param menus
+ */
+export function mapPathTbBreadcrumb(path: string, menus: any) {
+	for (const menu of menus) {
+		let firstSubMenu = ''
+		for (const submenu of menu.children) {
+			if (!firstSubMenu) firstSubMenu = submenu.url
+			if (submenu.url == path) {
+				return [
+					// { id: 1, path: '', name: '首页' },
+					{ id: 2, path: firstSubMenu, name: menu.name }, // 不传path，就是disable无法交互状态,这边让他进入第一个子集菜单
+					{ id: 3, path: submenu.url, name: submenu.name }
+				]
+			}
+		}
+	}
 }
 
 /**

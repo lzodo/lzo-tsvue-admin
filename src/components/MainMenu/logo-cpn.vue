@@ -3,7 +3,7 @@
 		<div class="img">
 			<img src="@/assets/img/logo.svg" />
 		</div>
-		<div class="font" v-show="!mainStore.isCollapse">后台管理系统</div>
+		<div class="font" v-show="!mainStore.isCollapse">vite + v3 系统</div>
 	</div>
 </template>
 

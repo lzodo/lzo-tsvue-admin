@@ -9,7 +9,7 @@
 				active-text-color="#ffd04b"
 				background-color="var(--main--one-bg)"
 				class="el-menu-vertical-demo"
-				default-active="3"
+				:default-active="defaultShowId"
 				text-color="#fff"
 				@open="handleOpen"
 				@close="handleClose"
@@ -24,12 +24,7 @@
 						<span>{{ item.name }}</span>
 					</template>
 					<!-- :index="String(item.id) + '-' + String(subItem.id)" index 不一定要用他模板的1-1-->
-					<el-menu-item
-						:index="String(subItem.id)"
-						v-for="subItem in item.children"
-						:key="subItem.id"
-						@click="toPath(subItem.url)"
-					>
+					<el-menu-item :index="String(subItem.id)" v-for="subItem in item.children" :key="subItem.id" @click="toPath(subItem)">
 						<template #title>
 							<el-icon>
 								<component :is="subItem.icon.replace('el-icon', '')"></component>
@@ -47,9 +42,20 @@
 	import router from '@/router'
 	import useLoginStore from '@/store/login/login'
 	import useMainStore from '@/store/main/main'
+	import { computed, ref } from 'vue'
+	import { useRoute } from 'vue-router'
+	import { mapPathToMenu } from '@/utils/map-menus'
 
 	let loginStore = useLoginStore()
 	let mainStore = useMainStore()
+
+	// 设置默认激活菜单
+	const route = useRoute()
+	// 通过路径获取id
+	let id = computed(() => {
+		return mapPathToMenu(route.path, loginStore.userMenus)
+	})
+	let defaultShowId = ref(id)
 
 	const handleOpen = (key: string, keyPath: string[]) => {
 		console.log(key, keyPath)
@@ -58,8 +64,8 @@
 		console.log(key, keyPath)
 	}
 
-	const toPath = (url: any) => {
-		router.push(url)
+	const toPath = (submenu: any) => {
+		router.push(submenu.url)
 	}
 </script>
 

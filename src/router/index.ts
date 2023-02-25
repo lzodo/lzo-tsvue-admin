@@ -1,4 +1,5 @@
 import { localCatch } from '@/utils/catch'
+import { defaultMenu } from '@/utils/map-menus'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
@@ -45,6 +46,8 @@ router.beforeEach((to) => {
 	} else {
 		// 没返回或返回undefined则正常跳转
 	}
+
+	if (to.path === '/main') return defaultMenu?.url
 })
 
 export default router

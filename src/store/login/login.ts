@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import type { LoginFromData } from '@/types'
 import { localCatch } from '@/utils/catch'
 import router from '@/router'
-import mapMenusToRoute from '@/utils/map-menus'
+import { mapMenusToRoute } from '@/utils/map-menus'
 
 // 指定state数据的类型（复杂可以网上找 json to typestrip 工具转换好拿来用）
 interface ILoignState {
@@ -12,6 +12,7 @@ interface ILoignState {
 	userInfo: any // 或者直接用any
 	userRoles: any
 	userMenus: any
+	defaultShowId: any
 }
 
 const useLoginStore = defineStore('login', {
@@ -22,7 +23,8 @@ const useLoginStore = defineStore('login', {
 			id: undefined
 		},
 		userRoles: {},
-		userMenus: []
+		userMenus: [],
+		defaultShowId: 39
 	}),
 	getters: {},
 	actions: {
@@ -210,6 +212,7 @@ const useLoginStore = defineStore('login', {
 			this.loadDynamicRouter()
 
 			// 页面跳转
+			// router.push(defaultMenu.url) // 从路由拦截中实现
 			router.push('/main')
 		},
 		loadDynamicRouter() {
