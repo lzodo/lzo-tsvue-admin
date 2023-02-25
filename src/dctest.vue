@@ -5,15 +5,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+	import { defineComponent } from 'vue'
 
-export default defineComponent({
-	setup() {
-		return {
-			msg: '123456'
+	export default defineComponent({
+		setup() {
+			return {
+				msg: '123456'
+			}
 		}
-	}
-})
+	})
 </script>
 
 <style scoped></style>

@@ -13,3 +13,5 @@ app.use(pinia)
 app.use(router)
 
 app.mount('#app')
+
+app.config.globalProperties.$filesUrl = import.meta.env.VITE_BASEPATH // 模板中可以直接使用

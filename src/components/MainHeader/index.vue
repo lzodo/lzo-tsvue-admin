@@ -33,6 +33,7 @@
 		height: 100%;
 		border-bottom: 1px solid #dfdfdf;
 		padding-right: 10px;
+		background-color: #fff;
 
 		.menu-icon {
 			width: var(--layout-header-height);

@@ -9,11 +9,12 @@ console.log(import.meta.env.DEV) // 是否是开发环境
 console.log(import.meta.env.MODE) // vite 直接通过这个判断  production/development 生产或开发模式
 console.log(import.meta.env.PROD) // 是否是生产环境
 console.log(import.meta.env.SSR) // 是否SSR环境
+console.log(import.meta.env)
 
 let baseURL = '/'
 if (import.meta.env.MODE === 'production') {
 	// baseURL = 'http://codercba.com:8000' // process.env 在vite4 中不支持生产环境，只支持开发环境
-	baseURL = 'http://codercba.com:8000' // process.env 在vite4 中不支持生产环境，只支持开发环境
+	baseURL = 'http://114.115.212.129:8778' // process.env 在vite4 中不支持生产环境，只支持开发环境
 }
 
 const service = axios.create({
