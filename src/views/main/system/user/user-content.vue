@@ -16,7 +16,8 @@
 				<el-table-column align="center" prop="displayName" label="显示名称" width="120px" />
 				<el-table-column align="center" prop="sex" label="性别" width="60px" />
 				<el-table-column prop="headurl" label="头像">
-					<template #default="scope">
+					<!--作用域插槽 组件内的数据向外传递-->
+					<template v-slot="scope">
 						<img style="width: 30px" :src="$filesUrl + '' + String(scope.row.headurl)" alt="" />
 					</template>
 				</el-table-column>
@@ -29,7 +30,21 @@
 			</el-table>
 		</div>
 		<div class="pagination">
-			<el-pagination :page-size="pageSize" layout="prev, pager, next" :total="total" @current-change="changeNumber" />
+			<!--
+				current-page 表示当前页码（pageNumber）
+				page-size 表示每页的个数
+				page-sizes='[7,10,20]' // 每页个数选择layout加上sizes, 添加 @size-change
+				total 设置一共多少数据
+			-->
+			<el-pagination
+				:page-size="pageSize"
+				:current-page="pageNumber"
+				:page-sizes="[7, 10, 20]"
+				layout="prev, sizes, pager, next"
+				:total="total"
+				@current-change="changeNumber"
+				@size-change="changeSize"
+			/>
 		</div>
 	</div>
 </template>
@@ -37,9 +52,14 @@
 <script setup lang="ts">
 	import { queryList } from '@/service/main/user/user'
 	import { reactive, ref, onBeforeMount } from 'vue'
+	import { formatUTC } from '@/utils/format'
+
 	let pageSize = ref(10)
 	let pageNumber = ref(1)
 	let total = 0
+
+	const datex = formatUTC('2022-10-20T01:14:51.000Z')
+	console.log(datex)
 
 	const changeNumber = (value: any) => {
 		pageNumber.value = value
@@ -57,6 +77,11 @@
 		total = res.result.totalCount
 	}
 	getData()
+
+	const changeSize = (val: number) => {
+		pageSize.value = val
+		getData()
+	}
 	// onBeforeMount(async () => {})
 </script>
 

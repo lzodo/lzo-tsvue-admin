@@ -17,6 +17,11 @@ declare module 'axios' {
 	}
 }
 
+declare module 'element-plus/dist/locale/zh-cn.mjs' {
+	const src: any
+	export default src
+}
+
 declare module '*.mjs'
 export declare module 'element-plus/dist/locale/zh-cn.mjs'
 
