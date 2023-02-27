@@ -17,13 +17,8 @@ declare module 'axios' {
 	}
 }
 
-declare module 'element-plus/dist/locale/zh-cn.mjs' {
-	const src: any
-	export default src
-}
-
 declare module '*.mjs'
-export declare module 'element-plus/dist/locale/zh-cn.mjs'
+declare module 'element-plus/dist/locale/zh-cn.mjs'
 
 // 使ts认识 app.config.globalProperties 添加的自定义全局属性
 declare module '@vue/runtime-core' {
@@ -37,11 +32,4 @@ declare module '@vue/runtime-core' {
 // 	interface Window {
 // 		localCatch: any
 // 	}
-// }
-
-// interface errorCodes {
-// 	'401': string
-// 	'403': string
-// 	'404': string
-// 	default: string
 // }

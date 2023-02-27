@@ -51,12 +51,13 @@
 
 <script setup lang="ts">
 	import { queryList } from '@/service/main/user/user'
-	import { reactive, ref, onBeforeMount } from 'vue'
+	import { reactive, ref } from 'vue'
 	import { formatUTC } from '@/utils/format'
 
-	let pageSize = ref(10)
+	let pageSize = ref(3)
 	let pageNumber = ref(1)
 	let total = 0
+	let searchData = {}
 
 	const datex = formatUTC('2022-10-20T01:14:51.000Z')
 	console.log(datex)
@@ -71,8 +72,12 @@
 	}
 
 	let tableData: any = reactive({ list: [] })
-	const getData = async () => {
-		let res = await queryList({ pageSize: pageSize.value, pageNumber: pageNumber.value })
+	const getData = async (data?: any) => {
+		if (data) {
+			pageNumber.value = 1
+			searchData = data
+		}
+		let res = await queryList(Object.assign({ pageSize: pageSize.value, pageNumber: pageNumber.value }, searchData))
 		tableData.list = res.result.list
 		total = res.result.totalCount
 	}
@@ -80,9 +85,13 @@
 
 	const changeSize = (val: number) => {
 		pageSize.value = val
+		pageNumber.value = 1
 		getData()
 	}
-	// onBeforeMount(async () => {})
+
+	defineExpose({
+		getData
+	})
 </script>
 
 <style lang="scss" scoped>

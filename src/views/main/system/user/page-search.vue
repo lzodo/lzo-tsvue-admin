@@ -3,8 +3,8 @@
 		<el-form :model="searchData" label-width="90px" ref="ruleFormRef">
 			<el-row :gutter="20">
 				<el-col :span="8">
-					<el-form-item label="用户名" prop="nickname">
-						<el-input v-model="searchData.nickname" placeholder="请输入用户名" />
+					<el-form-item label="用户名" prop="name">
+						<el-input v-model="searchData.name" placeholder="请输入用户名" />
 					</el-form-item>
 				</el-col>
 				<el-col :span="8">
@@ -51,20 +51,25 @@
 	import type { ElForm, FormInstance } from 'element-plus'
 
 	const searchData = reactive({
-		nickname: '',
+		name: '',
 		realname: '',
 		phone: '',
 		state: '',
 		dates: ''
 	})
+	let emit = defineEmits(['handleSearchClick'])
 
 	// let ruleFormRef = ref<FormInstance>() //文档里提供的类型 InstanceType<typeof ElForm> == FormInstance
 	let ruleFormRef = ref<InstanceType<typeof ElForm>>()
 	const onRefresh = () => {
 		// searchData.name = '' // 手动重置
 		ruleFormRef.value?.resetFields() // 必须 prop属性绑定的属性才生效
+		emit('handleSearchClick', searchData)
 	}
-	const onSearch = () => {}
+
+	const onSearch = () => {
+		emit('handleSearchClick', searchData)
+	}
 </script>
 
 <style lang="scss" scoped>

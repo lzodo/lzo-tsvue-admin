@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { tansParams } from './tool'
-import errorCode from '@/utils/errorCode'
 import { localCatch } from './catch'
 
 // vite 用 import.meta.env.MODE 代替 process.env.NODE_ENV
@@ -57,7 +56,7 @@ service.interceptors.response.use(
 		// 未设置状态码则默认成功状态
 		const code = res.data.code || 200
 		// 获取错误信息
-		const msg = res.data.msg || errorCode['default']
+		const msg = res.data.msg || '系统未知错误，请反馈给管理员'
 		// 二进制数据则直接返回
 		if (res.request.responseType === 'blob' || res.request.responseType === 'arraybuffer') {
 			return res.data
