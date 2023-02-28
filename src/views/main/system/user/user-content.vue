@@ -2,7 +2,7 @@
 	<div class="page-content">
 		<div class="header">
 			<h3>用户列表</h3>
-			<el-button type="success" icon="Plus">新增</el-button>
+			<el-button type="success" icon="Plus" @click="createItem">新增</el-button>
 		</div>
 		<div class="table">
 			<!--
@@ -23,8 +23,24 @@
 				</el-table-column>
 				<el-table-column prop="headurl" label="操作" width="180px">
 					<template #default="scope">
-						<el-button text size="small" class="edit" type="primary" icon="Edit" @click="editItem(scope.row)">编辑</el-button>
-						<el-button text size="small" class="delete" type="danger" icon="Delete">删除</el-button>
+						<el-button
+							text
+							size="small"
+							class="edit"
+							type="primary"
+							icon="Edit"
+							@click="editItem(scope.row)"
+							>编辑</el-button
+						>
+						<el-button
+							text
+							size="small"
+							class="delete"
+							type="danger"
+							icon="Delete"
+							@click="removeItem(scope.row)"
+							>删除</el-button
+						>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -39,39 +55,56 @@
 			<el-pagination
 				:page-size="pageSize"
 				:current-page="pageNumber"
-				:page-sizes="[7, 10, 20]"
+				:page-sizes="[2, 4, 7, 10, 20]"
 				layout="prev, sizes, pager, next"
 				:total="total"
+				:small="true"
 				@current-change="changeNumber"
 				@size-change="changeSize"
 			/>
 		</div>
+		<UserModal ref="dialogModalRef"></UserModal>
 	</div>
 </template>
 
 <script setup lang="ts">
-	import { queryList } from '@/service/main/user/user'
+	import { ElMessage } from 'element-plus'
+	import { queryList, removeList } from '@/service/main/user/user'
 	import { reactive, ref } from 'vue'
-	import { formatUTC } from '@/utils/format'
+	import UserModal from './user-modal.vue'
+	// import { formatUTC } from '@/utils/format'
+	// const datex = formatUTC('2022-10-20T01:14:51.000Z')
+	// console.log(datex)
 
 	let pageSize = ref(3)
 	let pageNumber = ref(1)
 	let total = 0
 	let searchData = {}
+	let tableData: any = reactive({ list: [] })
+	let dialogModalRef = ref<InstanceType<typeof UserModal>>()
 
-	const datex = formatUTC('2022-10-20T01:14:51.000Z')
-	console.log(datex)
-
-	const changeNumber = (value: any) => {
-		pageNumber.value = value
-		getData()
+	// 增加
+	const createItem = () => {
+		dialogModalRef.value?.showDialog()
 	}
 
+	// 删除
+	const removeItem = (row: any) => {
+		removeList(row.id).then(() => {
+			ElMessage({
+				message: '操作成功',
+				type: 'success'
+			})
+			getData()
+		})
+	}
+
+	// 修改
 	const editItem = (row: any) => {
 		console.log(row)
 	}
 
-	let tableData: any = reactive({ list: [] })
+	// 查询
 	const getData = async (data?: any) => {
 		if (data) {
 			pageNumber.value = 1
@@ -83,6 +116,13 @@
 	}
 	getData()
 
+	// 分页点击
+	const changeNumber = (value: any) => {
+		pageNumber.value = value
+		getData()
+	}
+
+	// 改变页码
 	const changeSize = (val: number) => {
 		pageSize.value = val
 		pageNumber.value = 1
