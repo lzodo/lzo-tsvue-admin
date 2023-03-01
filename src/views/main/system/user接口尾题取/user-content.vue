@@ -9,7 +9,7 @@
 				width="50px" 设置列宽，再将没有宽度的平均分配
 				align="center" 文字居中
 			-->
-			<el-table :data="userList" style="width: 100%" border>
+			<el-table :data="tableData.list" style="width: 100%" border>
 				<el-table-column align="center" type="selection" width="50px" />
 				<el-table-column align="center" type="index" width="60px" label="序号" />
 				<el-table-column align="center" prop="name" label="账号" width="120px" />
@@ -63,44 +63,45 @@
 				@size-change="changeSize"
 			/>
 		</div>
+		<UserModal ref="dialogModalRef"></UserModal>
 	</div>
 </template>
 
 <script setup lang="ts">
 	import { ElMessage } from 'element-plus'
-	import { ref } from 'vue'
-	import useUserStore from '@/store/main/system/user/user'
-	import { storeToRefs } from 'pinia'
-	let userStore = useUserStore()
+	import { queryList, removeList } from '@/service/main/system/user/user'
+	import { reactive, ref } from 'vue'
+	import UserModal from './user-modal.vue'
+	// import { formatUTC } from '@/utils/format'
+	// const datex = formatUTC('2022-10-20T01:14:51.000Z')
+	// console.log(datex)
 
 	let pageSize = ref(3)
 	let pageNumber = ref(1)
-	let { total } = storeToRefs(userStore)
-	let { userList } = storeToRefs(userStore)
+	let total = 0
 	let searchData = {}
-
-	let emit = defineEmits(['handleAddClick', 'handleEditClick'])
+	let tableData: any = reactive({ list: [] })
+	let dialogModalRef = ref<InstanceType<typeof UserModal>>()
 
 	// 增加
 	const createItem = () => {
-		emit('handleAddClick')
+		dialogModalRef.value?.showDialog()
 	}
 
 	// 删除
-	const removeItem = async (row: any) => {
-		await userStore.removeUserList(row.id).then(() => {
+	const removeItem = (row: any) => {
+		removeList(row.id).then(() => {
 			ElMessage({
 				message: '操作成功',
 				type: 'success'
 			})
-			// getData()
+			getData()
 		})
 	}
 
 	// 修改
 	const editItem = (row: any) => {
 		console.log(row)
-		emit('handleEditClick', row)
 	}
 
 	// 查询
@@ -109,10 +110,9 @@
 			pageNumber.value = 1
 			searchData = data
 		}
-
-		await userStore.queryUserList(
-			Object.assign({ pageSize: pageSize.value, pageNumber: pageNumber.value }, searchData)
-		)
+		let res = await queryList(Object.assign({ pageSize: pageSize.value, pageNumber: pageNumber.value }, searchData))
+		tableData.list = res.result.list
+		total = res.result.totalCount
 	}
 	getData()
 

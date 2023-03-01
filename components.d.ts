@@ -9,7 +9,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AvatarImg: typeof import('./src/components/FileUpload/avatar-img.vue')['default']
     Breadcrumb: typeof import('./src/components/MainHeader/breadcrumb.vue')['default']
+    DoubleImg: typeof import('./src/components/upload/double-img.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
@@ -32,6 +34,8 @@ declare module '@vue/runtime-core' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElPagination: typeof import('element-plus/es')['ElPagination']
+    ElRadio: typeof import('element-plus/es')['ElRadio']
+    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
@@ -40,6 +44,7 @@ declare module '@vue/runtime-core' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
+    ElUpload: typeof import('element-plus/es')['ElUpload']
     HeadUserinfo: typeof import('./src/components/MainHeader/head-userinfo.vue')['default']
     LogoCpn: typeof import('./src/components/MainMenu/logo-cpn.vue')['default']
     MainHeader: typeof import('./src/components/MainHeader/index.vue')['default']
@@ -47,5 +52,6 @@ declare module '@vue/runtime-core' {
     MenusCpn: typeof import('./src/components/MainMenu/menus-cpn.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SingleImg: typeof import('./src/components/FileUpload/single-img.vue')['default']
   }
 }

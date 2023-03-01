@@ -2,13 +2,8 @@
 	<div class="user-page page">
 		<PageSearch @handleSearchClick="handleSearchClick"></PageSearch>
 		<div class="tables">
-			<UserContent
-				ref="tableRef"
-				@handleAddClick="handleAddClick"
-				@handleEditClick="handleEditClick"
-			></UserContent>
+			<UserContent ref="tableRef"></UserContent>
 		</div>
-		<UserModal ref="dialogModalRef"></UserModal>
 	</div>
 </template>
 
@@ -16,22 +11,10 @@
 	import { ref } from 'vue'
 	import PageSearch from './user-search.vue'
 	import UserContent from './user-content.vue'
-	import UserModal from './user-modal.vue'
 
-	// 对表格的操作
 	const tableRef = ref<InstanceType<typeof UserContent>>()
 	const handleSearchClick = (data: any) => {
 		tableRef.value?.getData(data)
-	}
-
-	// 对弹窗的操作
-	let dialogModalRef = ref<InstanceType<typeof UserModal>>()
-	const handleAddClick = () => {
-		dialogModalRef.value?.showDialog(true)
-	}
-
-	const handleEditClick = (row: any) => {
-		dialogModalRef.value?.showDialog(false, row)
 	}
 </script>
 

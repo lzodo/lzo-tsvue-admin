@@ -63,14 +63,17 @@
 				@size-change="changeSize"
 			/>
 		</div>
+		<UserModal ref="dialogModalRef"></UserModal>
 	</div>
 </template>
 
 <script setup lang="ts">
 	import { ElMessage } from 'element-plus'
 	import { ref } from 'vue'
-	import useUserStore from '@/store/main/system/user/user'
+	import UserModal from './user-modal.vue'
+	import useUserStore from '@/store/main/user/user'
 	import { storeToRefs } from 'pinia'
+
 	let userStore = useUserStore()
 
 	let pageSize = ref(3)
@@ -78,12 +81,11 @@
 	let { total } = storeToRefs(userStore)
 	let { userList } = storeToRefs(userStore)
 	let searchData = {}
-
-	let emit = defineEmits(['handleAddClick', 'handleEditClick'])
+	let dialogModalRef = ref<InstanceType<typeof UserModal>>()
 
 	// 增加
 	const createItem = () => {
-		emit('handleAddClick')
+		dialogModalRef.value?.showDialog(true)
 	}
 
 	// 删除
@@ -100,7 +102,7 @@
 	// 修改
 	const editItem = (row: any) => {
 		console.log(row)
-		emit('handleEditClick', row)
+		dialogModalRef.value?.showDialog(false, row)
 	}
 
 	// 查询
