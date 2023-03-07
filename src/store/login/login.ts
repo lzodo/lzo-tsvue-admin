@@ -61,7 +61,16 @@ const useLoginStore = defineStore('login', {
 					children: [
 						{
 							id: 39,
-							name: '核心技术',
+							name: '商品统计',
+							type: 2,
+							url: '/main/analysis/dashboard',
+							icon: 'el-icon-monitor',
+							sort: 1,
+							children: []
+						},
+						{
+							id: 40,
+							name: '数据可视化',
 							type: 2,
 							url: '/main/analysis/overview',
 							icon: 'el-icon-monitor',

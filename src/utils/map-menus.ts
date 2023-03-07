@@ -6,6 +6,7 @@ export function mapMenusToRoute(menus: any[]) {
 	// 步骤2 一样需要先编辑好所有route  (coderwhy 自动化工具有时间可以了解一下)
 	let localRoutes = [
 		{ path: '/main/analysis/overview', component: () => import('@/views/main/analysis/overview/overview.vue') },
+		{ path: '/main/analysis/dashboard', component: () => import('@/views/main/analysis/dashboard/dashboard.vue') },
 		{ path: '/main/system/user', component: () => import('@/views/main/system/user/user.vue') },
 		{ path: '/main/system/role', component: () => import('@/views/main/system/role/role.vue') },
 		{ path: '/main/system/menu', component: () => import('@/views/main/system/menu/menu.vue') }
