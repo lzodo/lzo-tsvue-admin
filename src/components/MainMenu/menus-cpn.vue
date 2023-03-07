@@ -24,7 +24,12 @@
 						<span>{{ item.name }}</span>
 					</template>
 					<!-- :index="String(item.id) + '-' + String(subItem.id)" index 不一定要用他模板的1-1-->
-					<el-menu-item :index="String(subItem.id)" v-for="subItem in item.children" :key="subItem.id" @click="toPath(subItem)">
+					<el-menu-item
+						:index="String(subItem.id)"
+						v-for="subItem in item.children"
+						:key="subItem.id"
+						@click="toPath(subItem)"
+					>
 						<template #title>
 							<el-icon>
 								<component :is="subItem.icon.replace('el-icon', '')"></component>

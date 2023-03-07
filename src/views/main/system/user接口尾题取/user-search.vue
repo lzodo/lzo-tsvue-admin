@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 	import { reactive, ref } from 'vue'
-	import type { ElForm, FormInstance } from 'element-plus'
+	import type { ElForm } from 'element-plus'
 
 	const searchData = reactive({
 		name: '',

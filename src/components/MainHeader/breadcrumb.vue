@@ -2,7 +2,9 @@
 	<div class="breadcrumb">
 		<!--全局注册了图标，所有分隔符可以直接传字符串, 直接字符串 分割separator="|" -->
 		<el-breadcrumb separator-icon="ArrowRight">
-			<el-breadcrumb-item :to="{ path: item.path }" v-for="item in breadList" :key="item.id">{{ item.name }}</el-breadcrumb-item>
+			<el-breadcrumb-item :to="{ path: item.path }" v-for="item in breadList" :key="item.id">{{
+				item.name
+			}}</el-breadcrumb-item>
 			<!-- <el-breadcrumb-item>{{ breadList }}</el-breadcrumb-item> -->
 		</el-breadcrumb>
 	</div>
