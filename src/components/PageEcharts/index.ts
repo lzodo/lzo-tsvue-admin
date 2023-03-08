@@ -1,9 +1,11 @@
 import baseEchart from './src/base-echarts.vue'
 import PieEchart from './src/pie-echarts.vue'
 import LineEchart from './src/line-echarts.vue'
+import KLineEchart from './src/kline-echarts.vue'
 import MapEchart from './src/map-echarts.vue'
+import BarStackEchart from './src/bar-stack-echarts.vue'
 
-export { baseEchart, PieEchart, LineEchart, MapEchart }
+export { baseEchart, PieEchart, LineEchart, MapEchart, KLineEchart, BarStackEchart }
 
 /**
  * 封装思路

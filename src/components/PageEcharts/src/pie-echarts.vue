@@ -65,8 +65,9 @@
 			{ value: 1048, name: '一' },
 			{ value: 7350, name: '二' },
 			{ value: 580, name: '三' },
-			{ value: 484, name: '四' },
-			{ value: 300, name: '五' }
+			{ value: 4840, name: '四' },
+			{ value: 300, name: '五' },
+			{ value: 1500, name: '六' }
 		]
 		console.log('fdsfs')
 	}, 5000)

@@ -39,6 +39,7 @@
 	}
 	.el-main {
 		--el-main-padding: 0;
+		overflow-x: hidden;
 	}
 
 	.el-aside {
