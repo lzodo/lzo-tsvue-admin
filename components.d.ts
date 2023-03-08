@@ -10,6 +10,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AvatarImg: typeof import('./src/components/FileUpload/avatar-img.vue')['default']
+    BarStackEcharts: typeof import('./src/components/PageEcharts/src/bar-stack-echarts.vue')['default']
     BaseEchart: typeof import('./src/components/PageEcharts/src/base-echart.vue')['default']
     BaseEcharts: typeof import('./src/components/PageEcharts/src/base-echarts.vue')['default']
     Breadcrumb: typeof import('./src/components/MainHeader/breadcrumb.vue')['default']
@@ -49,6 +50,7 @@ declare module '@vue/runtime-core' {
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     HeadUserinfo: typeof import('./src/components/MainHeader/head-userinfo.vue')['default']
+    KlineEcharts: typeof import('./src/components/PageEcharts/src/kline-echarts.vue')['default']
     LineCharts: typeof import('./src/components/PageEcharts/src/line-charts.vue')['default']
     LineEcharts: typeof import('./src/components/PageEcharts/src/line-echarts.vue')['default']
     LogoCpn: typeof import('./src/components/MainMenu/logo-cpn.vue')['default']
