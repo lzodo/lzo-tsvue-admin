@@ -7,6 +7,10 @@ export function mapMenusToRoute(menus: any[]) {
 	let localRoutes = [
 		{ path: '/main/analysis/overview', component: () => import('@/views/main/analysis/overview/overview.vue') },
 		{ path: '/main/analysis/dashboard', component: () => import('@/views/main/analysis/dashboard/dashboard.vue') },
+		{
+			path: '/main/analysis/iframes/:id',
+			component: () => import('@/views/main/analysis/iframes/iframes.vue')
+		},
 		{ path: '/main/system/user', component: () => import('@/views/main/system/user/user.vue') },
 		{ path: '/main/system/role', component: () => import('@/views/main/system/role/role.vue') },
 		{ path: '/main/system/menu', component: () => import('@/views/main/system/menu/menu.vue') }
@@ -16,11 +20,22 @@ export function mapMenusToRoute(menus: any[]) {
 	const menuRoutes: RouteRecordRaw[] = []
 	for (const menu of menus) {
 		for (const submenu of menu.children) {
-			let route = localRoutes.filter((item) => item.path == submenu.url)[0]
+			let route = localRoutes.filter((item) => {
+				if (/:id$/.test(item.path)) {
+					if (item.path.replace('/:id', '') == submenu.url.replace(/\/[^/]*$/, '')) {
+						return true
+					}
+				} else {
+					if (item.path == submenu.url) {
+						return true
+					}
+				}
+			})[0]
 			if (route) menuRoutes.push(route) // router.addRoute('main', route)
 			if (!defaultMenu && route) defaultMenu = submenu
 		}
 	}
+	console.log(menuRoutes)
 	return menuRoutes
 }
 

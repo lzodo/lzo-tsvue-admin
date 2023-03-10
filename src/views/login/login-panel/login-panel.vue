@@ -1,5 +1,5 @@
 <template>
-	<div class="login-dialog-page page">
+	<div class="login-dialog-page">
 		<h1 class="title">后台管理系统</h1>
 		<el-tabs stretch type="border-card" v-model="tabPaneName" class="tabs">
 			<el-tab-pane name="login">

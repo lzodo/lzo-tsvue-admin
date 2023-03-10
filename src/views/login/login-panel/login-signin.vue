@@ -1,5 +1,5 @@
 <template>
-	<div class="signin-page page">
+	<div class="signin-page">
 		<!-- status-icon 验证的时候输入框后面状态图标 -->
 		<el-form
 			ref="signInFromRef"

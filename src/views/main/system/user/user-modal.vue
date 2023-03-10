@@ -3,7 +3,7 @@
 		<!--
 			 v-model  // 控制弹窗显示隐藏
 		-->
-		<el-dialog v-model="centerDialogVisible" :title="isNewInfo ? '新增' : '编辑'" width="50%" center>
+		<el-dialog v-model="centerDialogVisible" :title="isNewInfo ? '新增' : '编辑'" width="30%" center>
 			<el-form label-width="100px" :model="fromData" style="max-width: 460px">
 				<el-form-item label="账号" prop="name">
 					<el-input v-model="fromData.name" :disabled="!isNewInfo" />

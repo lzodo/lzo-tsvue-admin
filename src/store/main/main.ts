@@ -2,7 +2,8 @@ import { defineStore } from 'pinia'
 
 const useMainStore = defineStore('main', {
 	state: () => ({
-		isCollapse: false
+		isCollapse: false,
+		isHideMenuAndHeader: false
 	}),
 	actions: {
 		changeCollapseAction() {

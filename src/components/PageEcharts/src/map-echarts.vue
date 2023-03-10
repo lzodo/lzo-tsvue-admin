@@ -13,7 +13,9 @@
 	// let seriesVal = reactive({ list: [150, 230, 224, 218, 135, 147, 260] })
 	// let xAxisVal = reactive({ list: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] })
 	const props = defineProps({
-		mapData: []
+		mapData: {
+			type: Array
+		}
 	})
 	let options = computed<EChartsOption>(() => {
 		return {

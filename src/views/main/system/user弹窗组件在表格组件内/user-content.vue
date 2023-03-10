@@ -71,7 +71,7 @@
 	import { ElMessage } from 'element-plus'
 	import { ref } from 'vue'
 	import UserModal from './user-modal.vue'
-	import useUserStore from '@/store/main/user/user'
+	import useUserStore from '@/store/main/system/user/user'
 	import { storeToRefs } from 'pinia'
 
 	let userStore = useUserStore()

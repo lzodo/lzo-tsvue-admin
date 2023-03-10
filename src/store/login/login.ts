@@ -61,10 +61,37 @@ const useLoginStore = defineStore('login', {
 					children: [
 						{
 							id: 39,
-							name: '商品统计',
+							name: 'Echarts',
 							type: 2,
 							url: '/main/analysis/dashboard',
+							icon: 'dataAnalysis',
+							sort: 1,
+							children: []
+						},
+						{
+							id: 41,
+							name: '公司管理系统',
+							type: 2,
+							url: '/main/analysis/iframes/iot',
 							icon: 'el-icon-monitor',
+							sort: 1,
+							children: []
+						},
+						{
+							id: 42,
+							name: '移动端项目',
+							type: 2,
+							url: '/main/analysis/iframes/mvue',
+							icon: 'iphone',
+							sort: 1,
+							children: []
+						},
+						{
+							id: 43,
+							name: '学习文档总结',
+							type: 2,
+							url: '/main/analysis/iframes/docs',
+							icon: 'Tickets',
 							sort: 1,
 							children: []
 						},
@@ -73,7 +100,7 @@ const useLoginStore = defineStore('login', {
 							name: '数据可视化',
 							type: 2,
 							url: '/main/analysis/overview',
-							icon: 'el-icon-monitor',
+							icon: 'FolderOpened',
 							sort: 1,
 							children: []
 						}
@@ -92,7 +119,7 @@ const useLoginStore = defineStore('login', {
 							name: '用户管理',
 							type: 2,
 							url: '/main/system/user',
-							icon: 'el-icon-monitor',
+							icon: 'User',
 							sort: 1,
 							children: [
 								{
@@ -134,7 +161,7 @@ const useLoginStore = defineStore('login', {
 							name: '角色管理',
 							type: 2,
 							url: '/main/system/role',
-							icon: 'el-icon-monitor',
+							icon: 'wallet',
 							sort: 1,
 							children: [
 								{
@@ -176,7 +203,7 @@ const useLoginStore = defineStore('login', {
 							name: '菜单管理',
 							type: 2,
 							url: '/main/system/menu',
-							icon: 'el-icon-monitor',
+							icon: 'Menu',
 							sort: 1,
 							children: [
 								{

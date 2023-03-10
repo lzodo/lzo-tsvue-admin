@@ -42,7 +42,7 @@
 <script setup lang="ts">
 	import { ref, reactive } from 'vue'
 	import AvatarImg from '@/components/FileUpload/avatar-img.vue'
-	import useUserStore from '@/store/main/user/user'
+	import useUserStore from '@/store/main/system/user/user'
 	const userStore = useUserStore()
 	let isNewInfo = ref(true)
 
