@@ -3,6 +3,8 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+import viteCompression from 'vite-plugin-compression'
+
 // 配置element-plus template的组件自动引入
 // js逻辑中使用对象前期需要单独引入，后面会在auto-imports.d.ts自动映入
 // 需要单独引入['element-plus/theme-chalk/el-message.css'] 或 使用插件 vite-plugin-style-import 解决样式问题
@@ -19,7 +21,8 @@ export default defineConfig({
 		}),
 		Components({
 			resolvers: [ElementPlusResolver()]
-		})
+		}),
+		viteCompression()
 	],
 	resolve: {
 		alias: {

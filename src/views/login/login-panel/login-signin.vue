@@ -28,7 +28,7 @@
 
 	// 记住密码功能
 	let saveInfo = localCatch.getItem('saveInfo')
-	saveInfo = saveInfo ?? { name: '', passwd: '' }
+	saveInfo = saveInfo ?? { name: 'admin', passwd: '456' }
 	let formLabelAlign = reactive(saveInfo)
 	const rules = reactive<FormRules>({
 		name: [

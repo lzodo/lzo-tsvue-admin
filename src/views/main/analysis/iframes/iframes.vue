@@ -6,7 +6,7 @@
 		element-loading-background="#fff"
 	>
 		<div class="warp" :class="{ isMobile: iframeType == 'mobile' }">
-			<iframe :src="url" title="description"></iframe>
+			<iframe :src="url" title="description" v-if="showIframe"></iframe>
 		</div>
 	</div>
 </template>
@@ -19,6 +19,7 @@
 	const loading = ref(true)
 
 	let iframeType = 'default'
+	let showIframe = ref(false)
 
 	watchEffect(() => {
 		loading.value = true
@@ -41,6 +42,7 @@
 		}
 		setTimeout(() => {
 			loading.value = false
+			showIframe.value = true
 		}, 500)
 	})
 </script>
