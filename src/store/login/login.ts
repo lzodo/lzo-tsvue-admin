@@ -96,11 +96,20 @@ const useLoginStore = defineStore('login', {
 							children: []
 						},
 						{
-							id: 40,
-							name: '数据可视化',
+							id: 44,
+							name: '案例库',
 							type: 2,
-							url: '/main/analysis/overview',
-							icon: 'FolderOpened',
+							url: '/main/analysis/iframes/case',
+							icon: 'Film',
+							sort: 1,
+							children: []
+						},
+						{
+							id: 46,
+							name: '高德地图',
+							type: 2,
+							url: '/main/analysis/gismap',
+							icon: 'Location',
 							sort: 1,
 							children: []
 						}

@@ -1,6 +1,6 @@
 <template>
-	<div class="overview-page page">
-		<div>overview</div>
+	<div class="gismap-page page">
+		<div>gismap</div>
 	</div>
 </template>
 

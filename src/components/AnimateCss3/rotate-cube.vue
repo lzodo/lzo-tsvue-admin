@@ -1,0 +1,147 @@
+<template>
+	<div class="cube">
+		<div class="parent" :class="{ isEnter: isEnter }" @mouseenter="isEnter = true" @mouseleave="isEnter = false">
+			<div class="mian left">左</div>
+			<div class="mian right">右</div>
+			<div class="mian top"></div>
+			<div class="mian bottom"></div>
+			<div class="mian before"></div>
+			<div class="mian back"></div>
+			<div class="inner">
+				<div class="imian ileft">左</div>
+				<div class="imian iright">右</div>
+				<div class="imian itop"></div>
+				<div class="imian ibottom"></div>
+				<div class="imian ibefore"></div>
+				<div class="imian iback"></div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script setup lang="ts">
+	import { ref } from 'vue'
+	const isEnter = ref(false)
+</script>
+
+<style lang="scss" scoped>
+	.parent {
+		width: 80px;
+		height: 80px;
+		position: relative;
+		transform-style: preserve-3d;
+		/* background-color: #f00; */
+		/*transform: rotateX(-33.5deg) rotateY(45deg); 测试角度*/
+		animation: loop 6s ease-in-out infinite;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&.isEnter {
+			width: 80px;
+			height: 80px;
+			.main {
+				width: 80px;
+				height: 80px;
+			}
+		}
+	}
+	.parent .mian {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 80px;
+		height: 80px;
+		background-color: rgba(141, 214, 249, 0.5);
+		border: 1px solid white;
+		color: #fff;
+		font-weight: bold;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.parent .left {
+		/* transform-origin:left; */
+		transform: rotateY(90deg) translateZ(-75px);
+	}
+	.parent .right {
+		transform: rotateY(90deg) translateZ(75px);
+	}
+	.parent .top {
+		transform: rotateX(90deg) translateZ(75px);
+	}
+	.parent .bottom {
+		transform: rotateX(90deg) translateZ(-75px);
+	}
+	.parent .back {
+		transform: translateZ(-75px);
+	}
+	.parent .before {
+		transform: translateZ(75px);
+	}
+
+	@keyframes loop {
+		0% {
+			transform: rotateX(-45deg) rotateY(45deg) scaleZ(1);
+		}
+		50%,
+		100% {
+			transform: rotateX(-45deg) rotateY(405deg) scaleZ(1);
+		}
+	}
+
+	.inner {
+		width: 70px;
+		height: 70px;
+		/* background-color: #f00; */
+		position: relative;
+		transform-style: preserve-3d;
+		/* background-color: #f00; */
+		transform: rotateX(0deg) rotateY(0deg);
+		animation: innerLoop 6s ease-in-out infinite;
+	}
+	.inner .imian {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 70px;
+		height: 70px;
+		background-color: rgba(141, 214, 249, 0.5);
+		border: 1px solid white;
+
+		color: #fff;
+		font-weight: bold;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.inner .ileft {
+		transform: rotateY(90deg) translateZ(-35px);
+	}
+	.inner .iright {
+		transform: rotateY(90deg) translateZ(35px);
+	}
+	.inner .itop {
+		transform: rotateX(90deg) translateZ(35px);
+	}
+	.inner .ibottom {
+		transform: rotateX(90deg) translateZ(-35px);
+	}
+	.inner .ibefore {
+		transform: translateZ(35px);
+	}
+	.inner .iback {
+		transform: translateZ(-35px);
+	}
+
+	@keyframes innerLoop {
+		0% {
+			transform: rotateX(0deg) rotateY(0deg);
+		}
+
+		50%, /* 动画事件设置6秒，50%也就是3秒的结果就是500%的结果，就会有3秒悬停效果 */
+                100% {
+			transform: rotateX(0deg) rotateY(-720deg); /*逆时针旋转360度 因为嵌套父级会顺时针转360这边要快更一倍*/
+		}
+	}
+</style>

@@ -36,6 +36,14 @@
 				iframeType = 'default'
 				url.value = 'http://docs.lzoxun.top/docs/other-weblinks/'
 				break
+			case 'case':
+				iframeType = 'default'
+				url.value = 'http://case.lzoxun.top'
+				break
+			// case 'map':
+			// 	iframeType = 'default'
+			// 	url.value = 'http://case.lzoxun.top'
+			// 	break
 
 			default:
 				break

@@ -1,7 +1,7 @@
 <template>
 	<div class="login-dialog-page">
-		<h3 class="title">后台管理系统</h3>
-		<el-tabs stretch v-model="tabPaneName" class="tabs">
+		<h1 class="title">后台管理系统</h1>
+		<el-tabs stretch type="border-card" v-model="tabPaneName" class="tabs">
 			<el-tab-pane name="login">
 				<!--具名插槽 插槽名label-->
 				<template #label>
@@ -26,12 +26,7 @@
 			<el-checkbox v-model="isSavePwd" label="记住密码" size="large" @change="changeSaveState" />
 			<el-link type="primary" size="large">忘记密码</el-link>
 		</div>
-		<el-button type="primary" class="login-btn" size="large" @click="submitFrom" v-if="tabPaneName == 'login'"
-			>立即登录</el-button
-		>
-		<el-button type="primary" class="login-btn" size="large" @click="submitFrom" v-else disabled
-			>立即注册</el-button
-		>
+		<el-button type="primary" class="login-btn" size="large" @click="submitFrom">立即登录</el-button>
 	</div>
 </template>
 
@@ -62,18 +57,15 @@
 
 <style lang="scss" scoped>
 	.login-dialog-page {
-		border-radius: 4px;
 		width: 330px;
-		// height: 200px;
+		height: 200px;
 		margin-bottom: 150px; // 居中的同时往上走移动
-		background-color: #fff;
-		padding: 20px;
-		// overflow: hidden;
+		// background-color: var(--main-color);
 		.title {
 			text-align: center;
 		}
 		.tabs {
-			margin: 10px 0 0px;
+			margin: 20px 0 0px;
 		}
 		.controls {
 			display: flex;
@@ -84,6 +76,7 @@
 			--el-button-size: 35px; // large 的时候ui是设置 --el-button-size: 40px; 改变 --el-button-size 就可以改变按钮字体大小
 		}
 	}
+
 	.el-icon {
 		position: relative;
 		top: 1px;

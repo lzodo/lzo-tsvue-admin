@@ -17,10 +17,10 @@
 			>
 				<el-sub-menu :index="String(item.id)" v-for="item in loginStore.userMenus" :key="item.id">
 					<template #title>
-						<!-- <el-icon><location /></el-icon> 这里不能用了，使用动态组件，动态生成图标-->
-						<el-icon>
+						<el-icon><FolderOpened /></el-icon>
+						<!-- <el-icon>
 							<component :is="item.icon.replace('el-icon', '')"></component>
-						</el-icon>
+						</el-icon> -->
 						<span>{{ item.name }}</span>
 					</template>
 					<!-- :index="String(item.id) + '-' + String(subItem.id)" index 不一定要用他模板的1-1-->
@@ -77,5 +77,11 @@
 <style lang="scss" scoped>
 	.el-menu {
 		border-right: 0;
+		// .el-menu-item {
+		// 	transition: all 0.2s;
+		// 	&:hover {
+		// 		transform: scale(0.95);
+		// 	}
+		// }
 	}
 </style>
