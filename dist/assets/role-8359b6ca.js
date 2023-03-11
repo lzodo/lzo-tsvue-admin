@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{o,e as s,Y as t}from"./index-18435e24.js";const c={},r={class:"role-page page"},_=t("div",null,"role",-1),a=[_];function n(l,d){return o(),s("div",r,a)}const p=e(c,[["render",n]]);export{p as default};
