@@ -15,6 +15,7 @@
     "dayjs": "^1.11.7",
     "echarts": "^5.4.1",
     "element-plus": "^2.2.32",
+    "fake-progress": "^1.0.4",
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.30",
     "pinia-plugin-persistedstate": "^3.1.0",

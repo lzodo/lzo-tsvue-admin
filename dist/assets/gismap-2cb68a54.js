@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{o as s,e as o,$ as t}from"./index-92b17008.js";const a={},c={class:"gismap-page page"},_=t("div",null,"gismap",-1),n=[_];function r(i,p){return s(),o("div",c,n)}const f=e(a,[["render",r]]);export{f as default};

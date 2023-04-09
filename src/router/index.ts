@@ -11,12 +11,12 @@ const router = createRouter({
 		},
 		{
 			path: '/login',
-			component: () => import('../views/login/login.vue')
+			component: () => import('../views/login/Login.vue')
 		},
 		{
 			path: '/main',
 			name: 'main',
-			component: () => import('../views/main/main.vue'),
+			component: () => import('../views/main/Main.vue'),
 			children: [
 				// 子路由不需要斜杆开头 可以通过 /main/system/user 访问, 斜杆开头就不能链接main了
 				// 不推荐的方式，接口设置菜单路径 /main/system/role，我们这里保持一致，每个用户都有注册列出的所有路由

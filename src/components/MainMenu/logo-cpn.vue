@@ -1,13 +1,14 @@
 <template>
 	<div class="logo">
 		<div class="img">
-			<img src="@/assets/img/logo.svg" />
+			<img :src="imgurl" />
 		</div>
 		<div class="font" v-show="!mainStore.isCollapse">后台管理系统</div>
 	</div>
 </template>
 
 <script setup lang="ts">
+	import imgurl from '@/assets/img/logo.svg'
 	import useMainStore from '@/store/main/main'
 
 	let mainStore = useMainStore()

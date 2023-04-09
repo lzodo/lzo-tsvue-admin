@@ -2,7 +2,9 @@
 	<div class="dashboard-page page">
 		<div class="head-count">
 			<el-row :gutter="10">
-				<el-col :span="6"><div class="grid-content ep-bg-purple">统计</div> </el-col>
+				<el-col :span="6"><div class="grid-content ep-bg-purple">
+					<my-progress></my-progress>
+				</div> </el-col>
 				<el-col :span="6"><div class="grid-content ep-bg-purple">统计</div> </el-col>
 				<el-col :span="6"><div class="grid-content ep-bg-purple">统计</div> </el-col>
 				<el-col :span="6"><div class="grid-content ep-bg-purple">统计</div> </el-col>
@@ -48,6 +50,7 @@
 
 <script setup lang="ts">
 	import { PieEchart, LineEchart, MapEchart, KLineEchart, BarStackEchart } from '@/components/PageEcharts'
+	import MyProgress from './dash-cpns/my-progress.vue';
 </script>
 
 <style lang="scss" scoped>
