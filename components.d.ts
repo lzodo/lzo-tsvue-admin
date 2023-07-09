@@ -55,6 +55,7 @@ declare module '@vue/runtime-core' {
     MainHeader: typeof import('./src/components/MainHeader/index.vue')['default']
     MainMenu: typeof import('./src/components/MainMenu/index.vue')['default']
     MapEcharts: typeof import('./src/components/PageEcharts/src/map-echarts.vue')['default']
+    MapEchartsTest: typeof import('./src/components/PageEcharts/src/map-echarts-test.vue')['default']
     MenusCpn: typeof import('./src/components/MainMenu/menus-cpn.vue')['default']
     PieEcharts: typeof import('./src/components/PageEcharts/src/pie-echarts.vue')['default']
     RotateCube: typeof import('./src/components/AnimateCss3/rotate-cube.vue')['default']

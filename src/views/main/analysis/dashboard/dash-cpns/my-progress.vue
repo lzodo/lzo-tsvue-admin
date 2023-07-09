@@ -9,14 +9,14 @@
 <script setup lang="ts">
 	// 得到一个永远到不了1的递增数值
 	import FakeProgress from 'fake-progress'
-	import { ref } from 'vue'
+	import { onBeforeUnmount, ref } from 'vue'
 	let progressCount = ref(0)
 
 	let p = new FakeProgress({
 		timeConstant: 10000,
 		autoStart: true
 	})
-	var onEachSecond = function () {
+	let onEachSecond = function () {
 		progressCount.value = Number((p.progress * 100).toString().slice(0, 4))
 		console.log(p.progress)
 		if (p.progress != 1) {
@@ -25,12 +25,11 @@
 	}
 	requestAnimationFrame(onEachSecond)
 
-	var onEnd = function () {
+	let onEnd = function () {
 		p.end()
 	}
 
 	let onReload = function () {
-		p = null
 		p = new FakeProgress({
 			timeConstant: 10000,
 			autoStart: true
@@ -38,6 +37,11 @@
 		console.log(p.progress)
 		requestAnimationFrame(onEachSecond)
 	}
+
+	onBeforeUnmount(() => {
+		onEnd()
+		p = null
+	})
 </script>
 
 <style lang="scss" scoped>

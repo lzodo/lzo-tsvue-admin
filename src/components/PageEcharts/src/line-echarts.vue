@@ -1,7 +1,7 @@
 <template>
 	<!--单独封装饼状图-->
 	<div class="line-echarts">
-		<baseEchart :options="options"></baseEchart>
+		<baseEchart :options="options" mapType="china"></baseEchart>
 	</div>
 </template>
 

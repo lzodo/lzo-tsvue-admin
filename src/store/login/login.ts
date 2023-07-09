@@ -116,6 +116,34 @@ const useLoginStore = defineStore('login', {
 					]
 				},
 				{
+					id: 37,
+					name: '特殊效果',
+					type: 1,
+					url: '/main/special-effects',
+					icon: 'el-icon-monitor',
+					sort: 1,
+					children: [
+						{
+							id: 371,
+							name: 'CSS效果',
+							type: 2,
+							url: '/main/special-effects/special-css',
+							icon: 'dataAnalysis',
+							sort: 1,
+							children: []
+						},
+						{
+							id: 372,
+							name: 'JS效果',
+							type: 2,
+							url: '/main/special-effects/special-js',
+							icon: 'el-icon-monitor',
+							sort: 1,
+							children: []
+						}
+					]
+				},
+				{
 					id: 1,
 					name: '系统管理',
 					type: 1,

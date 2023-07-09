@@ -13,7 +13,10 @@ export function mapMenusToRoute(menus: any[]) {
 		},
 		{ path: '/main/system/user', component: () => import('@/views/main/system/user/user.vue') },
 		{ path: '/main/system/role', component: () => import('@/views/main/system/role/role.vue') },
-		{ path: '/main/system/menu', component: () => import('@/views/main/system/menu/menu.vue') }
+		{ path: '/main/system/menu', component: () => import('@/views/main/system/menu/menu.vue') },
+
+		{ path: '/main/special-effects/special-js', component: () => import('@/views/main/special-effects/special-js/index.vue') },
+		{ path: '/main/special-effects/special-css', component: () => import('@/views/main/special-effects/special-css/index.vue') }
 	]
 
 	// 步骤三 根据菜单去添加有权限的路由, 将需要的 添加到路由name 为main的route中
