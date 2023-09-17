@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router'
 export let defaultMenu: any = null // 设置登录后默认跳转的菜单
 export function mapMenusToRoute(menus: any[]) {
 	// 步骤1 已得到菜单
-	// 步骤2 一样需要先编辑好所有route  (coderwhy 自动化工具有时间可以了解一下)
+	// 步骤2 一样需要先编辑好所有route
 	let localRoutes = [
 		{ path: '/main/analysis/gismap', component: () => import('@/views/main/analysis/gismap/gismap.vue') },
 		{ path: '/main/analysis/dashboard', component: () => import('@/views/main/analysis/dashboard/dashboard.vue') },
@@ -15,8 +15,16 @@ export function mapMenusToRoute(menus: any[]) {
 		{ path: '/main/system/role', component: () => import('@/views/main/system/role/role.vue') },
 		{ path: '/main/system/menu', component: () => import('@/views/main/system/menu/menu.vue') },
 
-		{ path: '/main/special-effects/special-js', component: () => import('@/views/main/special-effects/special-js/index.vue') },
-		{ path: '/main/special-effects/special-css', component: () => import('@/views/main/special-effects/special-css/index.vue') }
+		{ path: '/main/case/file-upload', component: () => import('@/views/main/case/file-upload/index.vue') },
+
+		{
+			path: '/main/special-effects/special-js',
+			component: () => import('@/views/main/special-effects/special-js/index.vue')
+		},
+		{
+			path: '/main/special-effects/special-css',
+			component: () => import('@/views/main/special-effects/special-css/index.vue')
+		}
 	]
 
 	// 步骤三 根据菜单去添加有权限的路由, 将需要的 添加到路由name 为main的route中

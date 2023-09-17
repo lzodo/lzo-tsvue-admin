@@ -28,6 +28,14 @@ service.interceptors.request.use(
 			config.headers.token = localCatch.getItem('token')
 		}
 
+		if (config.headers.formData) {
+			console.log(123456)
+
+			config.headers['Content-Type'] = 'multipart/form-data'
+		}
+
+		console.log(config.headers)
+
 		if (import.meta.env.MODE === 'production') {
 			config.url = (config.url as string).replace(/^\/api/, '')
 		}

@@ -68,48 +68,67 @@ const useLoginStore = defineStore('login', {
 							sort: 1,
 							children: []
 						},
-						{
-							id: 41,
-							name: '公司管理系统',
-							type: 2,
-							url: '/main/analysis/iframes/iot',
-							icon: 'el-icon-monitor',
-							sort: 1,
-							children: []
-						},
-						{
-							id: 42,
-							name: '移动端项目',
-							type: 2,
-							url: '/main/analysis/iframes/mvue',
-							icon: 'iphone',
-							sort: 1,
-							children: []
-						},
-						{
-							id: 43,
-							name: '学习文档总结',
-							type: 2,
-							url: '/main/analysis/iframes/docs',
-							icon: 'Tickets',
-							sort: 1,
-							children: []
-						},
-						{
-							id: 44,
-							name: '案例库',
-							type: 2,
-							url: '/main/analysis/iframes/case',
-							icon: 'Film',
-							sort: 1,
-							children: []
-						},
+						// {
+						// 	id: 41,
+						// 	name: '公司管理系统',
+						// 	type: 2,
+						// 	url: '/main/analysis/iframes/iot',
+						// 	icon: 'el-icon-monitor',
+						// 	sort: 1,
+						// 	children: []
+						// },
+						// {
+						// 	id: 42,
+						// 	name: '移动端项目',
+						// 	type: 2,
+						// 	url: '/main/analysis/iframes/mvue',
+						// 	icon: 'iphone',
+						// 	sort: 1,
+						// 	children: []
+						// },
+						// {
+						// 	id: 43,
+						// 	name: '学习文档总结',
+						// 	type: 2,
+						// 	url: '/main/analysis/iframes/docs',
+						// 	icon: 'Tickets',
+						// 	sort: 1,
+						// 	children: []
+						// },
+						// {
+						// 	id: 44,
+						// 	name: '案例库',
+						// 	type: 2,
+						// 	url: '/main/analysis/iframes/case',
+						// 	icon: 'Film',
+						// 	sort: 1,
+						// 	children: []
+						// },
 						{
 							id: 46,
 							name: '高德地图',
 							type: 2,
 							url: '/main/analysis/gismap',
 							icon: 'Location',
+							sort: 1,
+							children: []
+						}
+					]
+				},
+				{
+					id: 40,
+					name: '案例',
+					type: 1,
+					url: '/main/case',
+					icon: 'el-icon-monitor',
+					sort: 1,
+					children: [
+						{
+							id: 401,
+							name: '图片上传',
+							type: 2,
+							url: '/main/case/file-upload',
+							icon: 'el-icon-monitor',
 							sort: 1,
 							children: []
 						}

@@ -33,13 +33,13 @@ export default defineConfig({
 		host: '0.0.0.0',
 		proxy: {
 			'/api': {
-				// target: 'http://localhost:8778',
 				// target: 'http://codercba.com:3000',
 				// target: 'http://codercba.com:8000',
 				// target: 'http://coderwhy.dev:8000',
 				// target: 'http://codercba.prod:8000',
 				// target: 'http://152.136.185.210:4000',
-				target: 'http://192.168.203.132:8778',
+				// target: 'http://192.168.203.132:8778',
+				target: 'http://localhost:8778',
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, '')
 			}
